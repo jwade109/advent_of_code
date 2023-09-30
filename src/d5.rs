@@ -117,7 +117,9 @@ fn main()
             println!("{:?}", stacks);
 
             let mut s = &mut stacks[(m.src - 1) as usize];
-            let b = take_boxes(&mut s, m.quantity);
+            let mut b = take_boxes(&mut s, m.quantity);
+            // uncomment for part 2
+            // b.reverse();
             s = &mut stacks[(m.dst - 1) as usize];
             put_boxes(&b, &mut s);
             continue;
