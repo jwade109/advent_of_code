@@ -22,3 +22,8 @@ pub fn read_lines() -> Vec<String>
 
     result
 }
+
+pub fn split<'a>(s: &'a str, delim: &str) -> Vec<&'a str>
+{
+    return s.split(delim).collect::<Vec<&str>>();
+}
