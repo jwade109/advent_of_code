@@ -1,3 +1,5 @@
+#![allow(unused)]
+
 use std::env;
 use std::fs::read_to_string;
 
