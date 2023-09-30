@@ -10,6 +10,8 @@ pub fn read_lines() -> Vec<String>
         panic!("Requires filename as argument.");
     }
 
+    println!("Args: {:?}", args);
+
     let filename = &args[1];
 
     let mut result = Vec::new();
