@@ -65,5 +65,9 @@ path = "src/d14.rs"
 name = "d15"
 path = "src/d15.rs"
 
+[[bin]]
+name = "d16"
+path = "src/d16.rs"
+
 [dependencies]
 regex = "1.9.6"
