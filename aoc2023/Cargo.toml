@@ -9,6 +9,10 @@ edition = "2021"
 name = "d1"
 path = "src/d1.rs"
 
+[[bin]]
+name = "d6"
+path = "src/d6.rs"
+
 [dependencies]
 regex = "1.10.2"
 regex-macro = "0.2.0"

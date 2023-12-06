@@ -16,5 +16,5 @@ pub fn read_file(filename: &str) -> Vec<String>
 
 pub fn split<'a>(s: &'a str, delim: &str) -> Vec<&'a str>
 {
-    return s.split(delim).collect::<Vec<&str>>();
+    return s.split(delim).filter(|c| !c.is_empty()).collect::<Vec<&str>>();
 }
