@@ -85,9 +85,9 @@ fn parse_monkeys(lines: &Vec<String>) -> Vec<Monkey>
     return ret;
 }
 
-fn process_item(mut worry_level: i32, m: &Monkey) -> (i32, i32)
+fn process_item(mut worry_level: i32, m: &Monkey, test_product: i32) -> (i32, i32)
 {
-    // worry_level %= m.test;
+    worry_level %= test_product;
 
     match m.op
     {
@@ -97,7 +97,7 @@ fn process_item(mut worry_level: i32, m: &Monkey) -> (i32, i32)
         Op::Mul(x)  => worry_level *= x
     };
 
-    worry_level /= 3;
+    // worry_level /= 3;
 
     let dst = if worry_level % m.test == 0
     {
@@ -111,10 +111,10 @@ fn process_item(mut worry_level: i32, m: &Monkey) -> (i32, i32)
     return (worry_level, dst)
 }
 
-fn inspect_items(m: &Monkey) -> Vec<(i32, i32)>
+fn inspect_items(m: &Monkey, test_product: i32) -> Vec<(i32, i32)>
 {
     return m.items.iter()
-        .map(|item| process_item(*item, m))
+        .map(|item| process_item(*item, m, test_product))
         .collect();
 }
 
@@ -122,11 +122,13 @@ fn main()
 {
     let mut monkeys = parse_monkeys(&aoc::read_lines());
 
-    for round in 1..=20
+    let test_product : i32 = monkeys.iter().map(|m| m.test).product();
+
+    for round in 1..=10000
     {
         for i in 0..monkeys.len()
         {
-            let results = inspect_items(&monkeys[i]);
+            let results = inspect_items(&monkeys[i], test_product);
             monkeys[i].items.clear();
             monkeys[i].count += results.len() as i32;
             for (item, dst) in results
