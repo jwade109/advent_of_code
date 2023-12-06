@@ -81,7 +81,7 @@ fn stack_the_boxes(boxes: &Vec<Vec<char>>) -> Vec<Vec<char>>
         }
     }
 
-    for mut b in &mut ret
+    for b in &mut ret
     {
         b.reverse()
     }
@@ -117,7 +117,7 @@ fn main()
             println!("{:?}", stacks);
 
             let mut s = &mut stacks[(m.src - 1) as usize];
-            let mut b = take_boxes(&mut s, m.quantity);
+            let b = take_boxes(&mut s, m.quantity);
             // uncomment for part 2
             // b.reverse();
             s = &mut stacks[(m.dst - 1) as usize];

@@ -94,6 +94,7 @@ fn parse_line_debug(line: &str) -> Option<Node>
     return ret;
 }
 
+#[test]
 fn run_tests()
 {
     assert_eq!(parse_line_debug("6"),    Some(Node::Num(6)));
